@@ -34,13 +34,13 @@
             para.addEventListener('click', fetchText)
 
             function fetchText () {
-                let url = 'http://localhost/breeders/breedersAPI/public.txt'
+                let url = 'http://localhost:3004/public'
                 let req = new Request(url, {
                     method: "GET"
                 })
 
                 fetch(req)
-                .then(resp => response.text())
+                .then(resp => resp.text())
                 .then(textData => {
                     outputElement.innerHTML = textData;
                 })

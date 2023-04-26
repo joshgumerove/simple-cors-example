@@ -39,10 +39,14 @@
                     method: "GET"
                 })
 
-                fetch(req)
-                .then(resp => resp.text())
-                .then(textData => {
-                    outputElement.innerHTML = textData;
+                fetch(req, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(resp => resp.json())
+                .then(JSONData => {
+                    outputElement.innerHTML = JSONData.message
                 })
                 .catch(err => console.log("there was an error: ", err))
 

@@ -34,16 +34,15 @@
             para.addEventListener('click', fetchText)
 
             function fetchText () {
-                let url = 'http://localhost:3004/public'
+                let url = 'http://localhost:3005/public'
                 let req = new Request(url, {
-                    method: "GET"
-                })
-
-                fetch(req, {
+                    method: "GET",
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 })
+
+                fetch(req)
                 .then(resp => resp.json())
                 .then(JSONData => {
                     outputElement.innerHTML = JSONData.message

@@ -28,7 +28,25 @@
 
         </div>
         <script>
+            let para = document.querySelector('p')
+            let outputElement = document.getElementById('output')
 
+            para.addEventListener('click', fetchText)
+
+            function fetchText () {
+                let url = 'http://localhost/breeders/breedersAPI/public.txt'
+                let req = new Request(url, {
+                    method: "GET"
+                })
+
+                fetch(req)
+                .then(resp => response.text())
+                .then(textData => {
+                    outputElement.innerHTML = textData;
+                })
+                .catch(err => console.log("there was an error: ", err))
+
+            }
         </script>
     </body>
 </html>
